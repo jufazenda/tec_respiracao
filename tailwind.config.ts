@@ -14,6 +14,10 @@ const config: Config = {
         secondary: '#B1DEC1',
         secondary_darker: '#9FC7AD',
         dark: '#424242',
+        white_shadow: 'rgba(255, 255, 255, 0.5)',
+      },
+      height: {
+        padraoScreen: 'calc(100vh - 4rem)',
       },
     },
   },

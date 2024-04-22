@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { PersonAddAltOutlined } from '@mui/icons-material'
 import { useRouter } from 'next/router'
 import { getUsers } from './api/supabaseFunctions'
+import cookies from 'js-cookie'
 
 const Login = () => {
   const [email, setEmail] = useState<string>('')
@@ -16,11 +17,12 @@ const Login = () => {
     try {
       const users = await getUsers()
 
-      const user = users?.find(
+      const findUser = users?.find(
         user => user.email === email && user.password === password
       )
 
-      if (user) {
+      if (findUser) {
+        cookies.set('user', JSON.stringify(findUser))
         router.push('/home')
       } else {
         alert(

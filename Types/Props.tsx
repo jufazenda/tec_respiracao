@@ -23,3 +23,12 @@ export interface Users {
 export interface UploadButtonProps {
   setPic: React.Dispatch<React.SetStateAction<File | null>>
 }
+
+export interface PropsBack {
+  pageName: string
+}
+
+export interface PropsConteudos {
+  titulo: string
+  conteudo?: string
+}
