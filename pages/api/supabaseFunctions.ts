@@ -1,12 +1,13 @@
+import { Users } from '@/Types/Props'
 import supabase from './supabase'
 
 //Arquivo de funções do Supabase
 
-/* export const getApostas = async (): Promise<> => {
+export const getUsers = async (): Promise<Users[] | undefined> => {
   const { data, error } = await supabase
-    .from('Apostas')
+    .from('Users')
     .select('*')
-    .order('nome')
+    .order('name')
 
   if (error) {
     console.error('Erro ao buscar dados:', error.message)
@@ -16,38 +17,26 @@ import supabase from './supabase'
   }
 }
 
-export const saveApostas = async (
-  nome: string,
-  cpf: string,
-  num1: number,
-  num2: number,
-  num3: number,
-  num4: number,
-  num5: number
-) => {
-  const { data: ultimaAposta, error } = await supabase
-    .from('Apostas')
-    .select('id')
-    .order('id', { ascending: false })
-    .limit(1)
+export const saveUser = async ({ name, email, password, pic }: Users) => {
+  const { data: uploadData, error: uploadError } = await supabase.storage
+    .from('bucket')
+    .upload(`profile_pics/${pic?.name}`, pic as File)
 
-  if (error) {
-    console.error('Erro ao buscar a última aposta:', error.message)
+  if (uploadError) {
+    console.error('Erro ao fazer upload da imagem:', uploadError.message)
     return
   }
 
-  const lastId = ultimaAposta.length > 0 ? ultimaAposta[0].id : 1000
-  const nextId = lastId + 1
+  const picUrl = uploadData.path
 
-  const response = await supabase.from('Apostas').insert([
-    {
-      id: nextId,
-      nome: nome,
-      cpf: cpf,
-      numeros_apostados: [num1, num2, num3, num4, num5],
-    },
-  ])
+  const { data, error } = await supabase
+    .from('Users')
+    .insert([{ name, email, password, pic: picUrl }])
 
-  return response
+  if (error) {
+    console.error('Erro ao salvar dados:', error.message)
+    return
+  }
+
+  return data
 }
- */

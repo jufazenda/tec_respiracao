@@ -4,11 +4,13 @@ import React, { ChangeEvent } from 'react'
 
 const TextFieldpadrao = styled(TextField)`
   input {
-    color: #aaaaaa !important;
+    color: black !important;
+    background-color: rgba(255, 255, 255, 0.5);
   }
   .MuiOutlinedInput-root {
     fieldset {
-      color: #aaaaaa;
+      color: black;
+      background-color: rgba(255, 255, 255, 0.5);
     }
     &:hover fieldset {
       border-color: #aaaaaa !important;
