@@ -1,18 +1,15 @@
-import { Source_Sans_3 } from 'next/font/google'
-import Image from 'next/image'
-import Button from './components/Button'
-
-const font = Source_Sans_3({ subsets: ['latin'] })
+import Quiz from './components/Quiz'
 
 export default function Home() {
   return (
-    <main className='bg-primary h-screen flex flex-col justify-center items-center w-full'>
-      <Image src='/logo.jpg' alt='Logo' width={600} height={600} />
+    <div className='flex flex-col items-center justify-center min-h-screen py-2'>
+      <main className='flex flex-col items-center justify-center flex-1 px-12 text-center'>
+        <h1 className='text-3xl m-10 font-bold text-primary_darker'>
+          Quiz Técnicas Manuais
+        </h1>
 
-      <div className='flex w-full justify-center flex-col gap-5 items-center'>
-        <Button name='Entrar' type='primary' func='/login' />
-        <Button name='Inscreva-se' type='secondary' func='/cadastro' />
-      </div>
-    </main>
+        <Quiz />
+      </main>
+    </div>
   )
 }

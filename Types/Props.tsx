@@ -13,11 +13,10 @@ export interface PropsField {
   type: string
 }
 
-export interface Users {
-  name: string
-  email: string
-  password: string
-  pic?: File | undefined
+export interface ProgressReviewProps {
+  currentQuestionIndex: number
+  totalQuestions: number
+  status: ('correct' | 'incorrect' | 'pending')[]
 }
 
 export interface UploadButtonProps {
@@ -31,4 +30,24 @@ export interface PropsBack {
 export interface PropsConteudos {
   titulo: string
   conteudo?: string
+}
+
+export interface QuestionProps {
+  question: string
+  options: string[]
+  handleAnswerOptionClick: (isCorrect: boolean) => void
+  answer: string
+}
+
+export interface ReviewProps {
+  questions: QuestionType[]
+  userAnswers: string[]
+  status: ('correct' | 'incorrect' | 'pending')[]
+}
+
+export interface QuestionType {
+  question: string
+  options: string[]
+  answer: string
+  explanation: string
 }
