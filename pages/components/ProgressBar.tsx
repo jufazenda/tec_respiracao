@@ -11,7 +11,7 @@ const ProgressBar = ({
   return (
     <div className='w-full'>
       <div className='flex justify-between mb-2'>
-        {status.map((_, index) => (
+        {status?.map((_, index) => (
           <div key={index} className='w-full px-1'>
             <div
               className={`h-4 rounded ${

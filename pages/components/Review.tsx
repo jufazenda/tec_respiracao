@@ -4,7 +4,7 @@ import { Cancel, CheckCircle } from '@mui/icons-material'
 const Review = ({ questions, userAnswers, status }: ReviewProps) => {
   return (
     <div className='w-full'>
-      {questions.map((question, index) => (
+      {questions?.map((question, index) => (
         <div
           key={index}
           className={` flex justify-start mb-4 rounded-md p-6 ${
