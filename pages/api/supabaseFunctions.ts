@@ -1,4 +1,4 @@
-import { Users } from '@/Types/Props'
+/* import { Users } from '@/Types/Props'
 import supabase from './supabase'
 
 //Arquivo de funções do Supabase
@@ -40,3 +40,4 @@ export const saveUser = async ({ name, email, password, pic }: Users) => {
 
   return data
 }
+ */
