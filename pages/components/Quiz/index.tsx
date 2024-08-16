@@ -205,7 +205,7 @@ const Quiz = () => {
         </>
       ) : (
         <>
-          <div className='w-full'>
+          <div className='w-full overflow-x-hidden'>
             <span className='text-xl font-bold text-primary_darker'>
               Questão {currentQuestionIndex + 1} de {questions.length}
             </span>
