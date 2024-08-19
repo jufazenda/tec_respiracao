@@ -2,7 +2,7 @@ import Question from './Question'
 import ProgressBar from '../ProgressBar'
 import Review from '../Review'
 import { QuestionType } from '@/Types/Props'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const questions: QuestionType[] = [
   {
@@ -153,6 +153,18 @@ const questions: QuestionType[] = [
   },
 ]
 
+function shuffleArray(array: QuestionType[]) {
+  const shuffledArray = [...array]
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffledArray[i], shuffledArray[j]] = [
+      shuffledArray[j],
+      shuffledArray[i],
+    ]
+  }
+  return shuffledArray
+}
+
 const Quiz = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [score, setScore] = useState(0)
@@ -165,14 +177,24 @@ const Quiz = () => {
     new Array(questions.length).fill('')
   )
 
+  // Estado para armazenar as questões embaralhadas
+  const [shuffledQuestions, setShuffledQuestions] = useState<
+    QuestionType[]
+  >([])
+
+  // Embaralha as questões quando o componente é montado
+  useEffect(() => {
+    setShuffledQuestions(shuffleArray(questions))
+  }, [])
+
   const handleAnswerOptionClick = (isCorrect: boolean) => {
     const newStatus = [...status]
     const newUserAnswers = [...userAnswers]
 
     newStatus[currentQuestionIndex] = isCorrect ? 'correct' : 'incorrect'
     newUserAnswers[currentQuestionIndex] =
-      questions[currentQuestionIndex].options.find(
-        option => option === questions[currentQuestionIndex].answer
+      shuffledQuestions[currentQuestionIndex].options.find(
+        option => option === shuffledQuestions[currentQuestionIndex].answer
       ) || ''
 
     setStatus(newStatus)
@@ -183,7 +205,7 @@ const Quiz = () => {
     }
 
     const nextQuestion = currentQuestionIndex + 1
-    if (nextQuestion < questions.length) {
+    if (nextQuestion < shuffledQuestions.length) {
       setCurrentQuestionIndex(nextQuestion)
     } else {
       setShowScore(true)
@@ -195,10 +217,10 @@ const Quiz = () => {
       {showScore ? (
         <>
           <div className='text-2xl'>
-            Você acertou {score} de {questions.length} questões.
+            Você acertou {score} de {shuffledQuestions.length} questões.
           </div>
           <Review
-            questions={questions}
+            questions={shuffledQuestions}
             userAnswers={userAnswers}
             status={status}
           />
@@ -207,19 +229,20 @@ const Quiz = () => {
         <>
           <div className='w-full overflow-x-hidden'>
             <span className='text-xl font-bold text-primary_darker'>
-              Questão {currentQuestionIndex + 1} de {questions.length}
+              Questão {currentQuestionIndex + 1} de{' '}
+              {shuffledQuestions.length}
             </span>
             <hr className='w-full my-4 border-t-2 border-gray-300' />
           </div>
           <Question
-            question={questions[currentQuestionIndex].question}
-            options={questions[currentQuestionIndex].options}
+            question={shuffledQuestions[currentQuestionIndex]?.question}
+            options={shuffledQuestions[currentQuestionIndex]?.options}
             handleAnswerOptionClick={handleAnswerOptionClick}
-            answer={questions[currentQuestionIndex].answer}
+            answer={shuffledQuestions[currentQuestionIndex]?.answer}
           />
           <ProgressBar
             currentQuestionIndex={currentQuestionIndex}
-            totalQuestions={questions.length}
+            totalQuestions={shuffledQuestions?.length}
             status={status}
           />
         </>
