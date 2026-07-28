@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import ArrowForwardRounded from '@mui/icons-material/ArrowForwardRounded'
 import WarningAmberRounded from '@mui/icons-material/WarningAmberRounded'
-import { SectionTitle, Divider } from '@/pages/components/oxigenoterapia/fisiologiaTransporte'
-import { CausasTabBar, HipoxemiaTable } from '@/pages/components/oxigenoterapia/hipoxemia'
+import { SectionTitle, Divider } from '@/components/oxigenoterapia/fisiologiaTransporte'
+import { CausasTabBar, HipoxemiaTable } from '@/components/oxigenoterapia/hipoxemia'
 import {
   CAUSAS_RESPIRATORIAS,
   CAUSAS_NAO_RESPIRATORIAS,

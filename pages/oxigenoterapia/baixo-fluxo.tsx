@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import { SectionTitle, Divider } from '@/pages/components/oxigenoterapia/fisiologiaTransporte'
-import { DispositivosBaixoFluxoList } from '@/pages/components/oxigenoterapia/baixoFluxo'
+import { SectionTitle, Divider } from '@/components/oxigenoterapia/fisiologiaTransporte'
+import { DispositivosBaixoFluxoList } from '@/components/oxigenoterapia/baixoFluxo'
 import { DISPOSITIVOS_BAIXO_FLUXO } from '@/data/baixoFluxo'
 
 export default function BaixoFluxo() {

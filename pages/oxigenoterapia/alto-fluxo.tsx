@@ -1,6 +1,6 @@
 import ArrowForwardRounded from '@mui/icons-material/ArrowForwardRounded'
-import { SectionTitle, Divider } from '@/pages/components/oxigenoterapia/fisiologiaTransporte'
-import { VenturiAccordion, CNAFAccordion } from '@/pages/components/oxigenoterapia/altoFluxo'
+import { SectionTitle, Divider } from '@/components/oxigenoterapia/fisiologiaTransporte'
+import { VenturiAccordion, CNAFAccordion } from '@/components/oxigenoterapia/altoFluxo'
 import {
   DILUITORES_VENTURI,
   FAIXAS_CNAF,

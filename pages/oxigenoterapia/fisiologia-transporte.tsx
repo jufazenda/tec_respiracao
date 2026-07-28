@@ -14,7 +14,7 @@ import {
   StatBox,
   FatoresTable,
   FactorPopupSheet,
-} from '@/pages/components/oxigenoterapia/fisiologiaTransporte'
+} from '@/components/oxigenoterapia/fisiologiaTransporte'
 
 export default function FisiologiaTransporte() {
   const [imgError, setImgError] = useState(false)

@@ -1,7 +1,7 @@
 import ArrowForwardRounded from '@mui/icons-material/ArrowForwardRounded'
 import WarningAmberRounded from '@mui/icons-material/WarningAmberRounded'
-import { SectionTitle, Divider } from '@/pages/components/oxigenoterapia/fisiologiaTransporte'
-import { ToxicidadeAccordions } from '@/pages/components/oxigenoterapia/indicacoesToxicidade'
+import { SectionTitle, Divider } from '@/components/oxigenoterapia/fisiologiaTransporte'
+import { ToxicidadeAccordions } from '@/components/oxigenoterapia/indicacoesToxicidade'
 import { TOXICIDADE_ITEMS } from '@/data/indicacoesToxicidade'
 
 export default function IndicacoesToxicidade() {

@@ -1,8 +1,8 @@
 import AirRounded from '@mui/icons-material/AirRounded'
 import ChildCareRounded from '@mui/icons-material/ChildCareRounded'
 import MonitorHeartRounded from '@mui/icons-material/MonitorHeartRounded'
-import { SectionTitle, Divider } from '@/pages/components/oxigenoterapia/fisiologiaTransporte'
-import { DispositivoPediatricoCard } from '@/pages/components/oxigenoterapia/pediatrico'
+import { SectionTitle, Divider } from '@/components/oxigenoterapia/fisiologiaTransporte'
+import { DispositivoPediatricoCard } from '@/components/oxigenoterapia/pediatrico'
 import { DISPOSITIVOS_PEDIATRICOS } from '@/data/pediatrico'
 
 const ICONE_MAP: Record<string, React.ReactNode> = {
