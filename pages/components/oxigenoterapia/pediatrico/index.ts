@@ -1,0 +1,1 @@
+export { DispositivoPediatricoCard } from './DispositivoPediatricoCard'

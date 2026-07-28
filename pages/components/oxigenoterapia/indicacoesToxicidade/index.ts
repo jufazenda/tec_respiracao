@@ -1,0 +1,1 @@
+export { ToxicidadeAccordions } from './ToxicidadeAccordions'

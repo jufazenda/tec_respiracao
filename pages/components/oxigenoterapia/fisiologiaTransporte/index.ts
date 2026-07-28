@@ -1,0 +1,5 @@
+export { SectionTitle, Divider } from './SectionTitle'
+export { StatBox } from './StatBox'
+export { FactorCell } from './FactorCell'
+export { FactorPopupSheet } from './FactorPopupSheet'
+export { FatoresTable } from './FatoresTable'
